@@ -1,3 +1,4 @@
+<?php require_once "koneksi.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,16 +19,45 @@
 <div id="body" style="margin-top: 15px;">
 <div class="container">
     <div class="row">
-        <div class="col-sm-1">
+        <div class="col-sm-4">
+        <div class="alert alert-danger" role="alert">
+            S &amp; K Berlaku
+        </div>
         </div>
 
-        <div class="col-sm-10">
+        <div class="col-sm-8">
             <div class="card">
                 <div class="card-header bg-dark text-white">
                     Tambah Buku
                 </div>
                 <div class="card-body">
-                    <form>
+
+                <?php
+
+                if( isset($_POST['tambahbuku'])){
+
+                    $kode = $_POST['kodebuku'];
+                    $judul = $_POST['judulbuku'];
+                    $pengarang = $_POST['pengarangbuku'];
+                    $penerbit = $_POST['penerbitbuku'];
+                    $lokasi = $_POST['lokasibuku'];
+                    $jumlah = $_POST['jumlahbuku'];
+
+                    if( !empty(trim($kode)) && !empty(trim($judul)) && !empty(trim($pengarang)) && !empty(trim($penerbit)) && !empty(trim($lokasi)) && !empty(trim($jumlah)) ){
+                        if(tambahbuku($kode, $judul, $pengarang, $penerbit, $lokasi, $jumlah)){
+                            echo "Berhasil menambhakn buku";
+                        }else{
+                            echo "Gagal Menambahkan Buku";
+                        }
+                    }else{
+                        echo "Form masih kosong";
+                    }
+
+                }
+
+                ?>
+
+                    <form action="tambahbuku.php" method="POST" name="form" >
                         <div class="form-group">
                             <label>Kode Buku</label>
                             <input type="text" class="form-control" name="kodebuku" placeholder="Masukkan Kode Buku">
@@ -57,8 +87,6 @@
                 </div>
             </div>
         </div>
-
-        <div class="col-sm-1"></div>
     </div>
 </div>
 </div>
