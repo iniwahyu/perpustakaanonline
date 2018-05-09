@@ -1,11 +1,33 @@
 .navbar{
-    background: #0984e3;
+    background: #2c3e50;
 }
 .navbar a{
-    color: #fff;
+    color: white;
 }
 .navbar a:hover{
     color: #000;
+}
+.navbar .navbar-nav .btn{
+    background: #23D1b9;
+}
+
+/* --- HALAMAN UTAMA --- */
+#body{
+    background: #ecf0f1;
+}
+.section1{
+    margin-top: 30px;
+}
+.section2{
+    margin-top: 30px;
+}
+.section3{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.section1 .card .card-header{
+    background: #23D1b9;
 }
 
 /* --- BUKU --- */

@@ -19,7 +19,7 @@
 
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a class="nav-link btn btn-danger" href="#">Login</a>
+        <a class="nav-link btn" href="#">Login</a>
       </li>
     </ul>
   </div>

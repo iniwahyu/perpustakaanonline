@@ -16,15 +16,15 @@
 <?php require_once "menu.php"; ?>
 </div>
 
-<div id="body" style="margin-top: 15px;">
+<div id="body">
+
+<!-- INI CONTAINER BAGIAN ATAS -->
+<div class="section1">
 <div class="container">
     <div class="row">
-        <div class="col-sm-1">
-        </div>
-
-        <div class="col-sm-10">
-            <div class="card">
-                <div class="card-header">
+        <div class="col-md-6">
+            <div class="card"> 
+                <div class="card-header text-white" >
                     Featured
                 </div>
                 <div class="card-body">
@@ -35,9 +35,80 @@
             </div>
         </div>
 
-        <div class="col-sm-1"></div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header text-white bg-danger">
+                    Featured
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Special title treatment</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div> 
     </div>
 </div>
+</div>
+<!-- INI PENUTUP CONTAINER BAGIAN ATAS -->
+
+<!-- INI CONTAINER BAGIAN TENGAH -->
+<div class="section2">
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header text-white bg-danger">
+                    Featured
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Special title treatment</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!-- INI PENUTUP CONTAINER BAGIAN TENGAH -->
+
+<!-- INI CONTAINER BAGIAN BAWAH -->
+<div class="section3">
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header text-white bg-danger">
+                    Featured
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Special title treatment</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header text-white bg-danger">
+                    Featured
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Special title treatment</h5>
+                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div> 
+    </div>
+</div>
+</div>
+<!-- INI PENUTUP CONTAINER BAGIAN BAWAH -->
+
+
+
 
 
 <div id="footer">
