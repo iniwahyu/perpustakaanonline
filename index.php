@@ -6,8 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 
-    <link rel="stylesheet" href="asset/css/bootstrap.min.css">
-    <link rel="stylesheet" href="asset/css/style.css">
+    <?php require_once "src/link_css.php"; ?>
 
 </head>
 <body>
@@ -25,7 +24,7 @@
         <div class="col-md-6">
             <div class="card"> 
                 <div class="card-header text-white" >
-                    Featured
+                    Featured <i class="fa fa-book" aria-hidden="true"></i>
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">Special title treatment</h5>
@@ -115,9 +114,8 @@
 </div>
 
 <!-- SCRIPT -->
-<script src=""></script>
-<script src="asset/js/bootstrap.min.js"></script>
 <script src="asset/js/jquery-3.min.js"></script>
+<script src="asset/js/bootstrap.min.js"></script>
 
 </body>
 </html>
