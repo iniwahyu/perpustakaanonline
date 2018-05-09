@@ -24,7 +24,7 @@
         <div class="col-md-6">
             <div class="card"> 
                 <div class="card-header text-white" >
-                    <i class="fa fa-book " aria-hidden="true"></i> Featured 
+                    <i class="fa fa-book " aria-hidden="true"></i> <span>Featured</span>  
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">Special title treatment</h5>
@@ -37,7 +37,7 @@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header text-white">
-                    Featured
+                    <span>Featured</span>
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">Special title treatment</h5>
@@ -58,7 +58,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header text-white">
-                    <i class="fa fa-check-square" aria-hidden="true"></i> Kata Sambutan Ketua Perpustakaan
+                    <i class="fa fa-check-square" aria-hidden="true"></i> <span>Kata Sambutan Ketua Perpustakaan</span>
                 </div>
                 <div class="card-body">
                     <p class="card-text">
@@ -88,7 +88,7 @@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header text-white">
-                    <i class="fa fa-refresh" aria-hidden="true"></i> Buku Terbaru
+                    <i class="fa fa-refresh" aria-hidden="true"></i> <span>Buku Terbaru</span>
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">Special title treatment</h5>
@@ -101,7 +101,7 @@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header text-white">
-                    <i class="fa fa-history" aria-hidden="true"></i> History Peminjaman
+                    <i class="fa fa-history" aria-hidden="true"></i> <span>History Peminjaman</span>
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">Special title treatment</h5>

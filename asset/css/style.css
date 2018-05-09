@@ -1,3 +1,6 @@
+body{
+    font-family: 'Roboto';
+}
 .navbar{
     background: #2c3e50;
 }
@@ -20,6 +23,7 @@
 }
 .section2{
     margin-top: 30px;
+    font-family: 'Roboto', sans-serif;
 }
 .section3{
     margin-top: 30px;
@@ -30,15 +34,33 @@
     font-size: 20px;
     font-weight: 700;
 }
+.section1 .card .card-header .fa{
+    color: #000;
+}
+.section1 .card .card-header span{
+    color: #000;
+}
 .section2 .card .card-header{
     background: #23D1b9;
     font-size: 20px;
     font-weight: 700;
 }
+.section2 .card .card-header .fa{
+    color: #000;
+}
+.section2 .card .card-header span{
+    color: #000;
+}
 .section3 .card .card-header{
     background: #23D1b9;
     font-size: 20px;
     font-weight: 700;
+}
+.section3 .card .card-header .fa{
+    color: #000;
+}
+.section3 .card .card-header span{
+    color: #000;
 }
 
 /* --- BUKU --- */
