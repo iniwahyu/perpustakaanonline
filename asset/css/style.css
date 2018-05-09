@@ -14,19 +14,40 @@
 }
 
 /* --- LOGIN REGISTER --- */
-#bodylogin{
-    background: url('bgudinus.jpg');
-    /* background-size: 100% 100%; */
+#backlogin::before{
+    content: '';
+    background: url('../img/bgudinus.jpg');
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: -1;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    right: 0;
+    filter: blur(10px);
 }
 #bodylogin .main-form{
-    background: #0984e3;
+    background: #2980b9;
     border: 1px solid #000;
     height: 100%;
+    position: relative;
+    z-index: 99;
+    margin-top: 120px;
 }
 #bodylogin .main-form .kiri{
-    background: #fff;
-    padding: 10px;
+    background: #eee;
     height: 100%;
+    padding-top: 85px;
+    padding-bottom: 25px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+#bodylogin .main-form .kiri .kiri-body{
+    padding-top: 50px;
+    padding-bottom: -100px;
 }
 #bodylogin .main-form .kiri .kiri-image{
     text-align: center
@@ -37,9 +58,12 @@
     margin-bottom: 15px;
 }
 #bodylogin .main-form .kanan{
-    background: #0984e3;
+    background: #2980b9;
     color: #fff;
     height: 100%;
     padding-top: 40px;
     padding-right: 30px;
+}
+#bodylogin .main-form .kanan-body{
+    padding-top: 100px;
 }

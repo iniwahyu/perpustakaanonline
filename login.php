@@ -15,7 +15,7 @@
 </head>
 <body id="backlogin">
 
-<div id="bodylogin" style="margin-top: 15px;">
+<div id="bodylogin">
 <div class="container">
     <div class="main-form">
     <div class="row">
@@ -23,7 +23,7 @@
             <div class="kiri">
                 <div class="kiri-image">
                     <img src="asset/img/logoudinus.png" alt="">
-                    <img src="bgudinus.jpg" alt="">
+                    
                 </div>
                 <div class="kiri-body">
                     Bagi mahasiswa yang ingin melakukan login.
