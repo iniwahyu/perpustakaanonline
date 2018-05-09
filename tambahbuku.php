@@ -41,11 +41,11 @@
                     $pengarang = $_POST['pengarangbuku'];
                     $penerbit = $_POST['penerbitbuku'];
                     $lokasi = $_POST['lokasibuku'];
-                    $jumlah = $_POST['jumlahbuku'];
+                    $status = $_POST['statusbuku'];
 
-                    if( !empty(trim($kode)) && !empty(trim($judul)) && !empty(trim($pengarang)) && !empty(trim($penerbit)) && !empty(trim($lokasi)) && !empty(trim($jumlah)) ){
-                        if(tambahbuku($kode, $judul, $pengarang, $penerbit, $lokasi, $jumlah)){
-                            echo "Berhasil menambhakn buku";
+                    if( !empty(trim($kode)) && !empty(trim($judul)) && !empty(trim($pengarang)) && !empty(trim($penerbit)) && !empty(trim($lokasi)) && !empty(trim($status)) ){
+                        if(tambahbuku($kode, $judul, $pengarang, $penerbit, $lokasi, $status)){
+                            echo "Berhasil menambahkan buku";
                         }else{
                             echo "Gagal Menambahkan Buku";
                         }
@@ -79,8 +79,8 @@
                             <input type="text" class="form-control" name="lokasibuku" placeholder="Masukkan Letak Lokasi Buku">
                         </div>
                         <div class="form-group">
-                            <label>Jumlah Buku</label>
-                            <input type="number" class="form-control" name="jumlahbuku" placeholder="Masukkan Jumlah Buku">
+                            <!-- <label>Status Buku</label> -->
+                            <input type="hidden" class="form-control" name="statusbuku" value="Tersedia" >
                         </div>
                         <button type="submit" name="tambahbuku" class="btn btn-primary">Submit</button>
                     </form>

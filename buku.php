@@ -1,3 +1,4 @@
+<?php require_once "koneksi.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,29 +37,31 @@
                         <th scope="col">Pengarang</th>
                         <th scope="col">Penerbit</th>
                         <th scope="col">Lokasi</th>
-                        <th scope="col">Jumlah</th>
+                        <th scope="col">Status</th>
                         <th scope="col">Aksi</th>
                         </tr>
                     </thead>
                     <tbody>
+                    <?php 
+                    $query = mysqli_query($mydb, "SELECT * FROM buku");
+                    while($row = mysqli_fetch_assoc($query)){ ?>
                         <tr>
-                        <th>1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
+                            <td><?php echo $row['kodebuku']; ?></td>
+                            <td><?php echo $row['judulbuku']; ?></td>
+                            <td><?php echo $row['pengarangbuku']; ?></td>
+                            <td><?php echo $row['penerbitbuku']; ?></td>
+                            <td><?php echo $row['lokasibuku']; ?></td>
+                            <td>
+                                <?php 
+                                if($row['statusbuku'] == 'Tersedia' ){
+                                    echo '<p class="btn btn-success btn-sm">Tersedia</p>';
+                                }else{
+                                    echo '<p class="btn btn-danger">Tidak Tersedia</p>';
+                                }?>
+                            </td>
+                            <td><a href="">Pinjam</a></td>
                         </tr>
-                        <tr>
-                        <th>2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                        </tr>
+                    <?php } ?>
                     </tbody>
                 </table>
                 </div>

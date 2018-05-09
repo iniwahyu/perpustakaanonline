@@ -9,28 +9,49 @@
     <?php require_once "src/link_css.php"; ?>
 
 </head>
-<body>
+<body id="backlogin">
 
 <div id="header">
 <?php require_once "menu.php"; ?>
 </div>
 
-<div id="body" style="margin-top: 15px;">
+<div id="bodylogin" style="margin-top: 15px;">
 <div class="container">
     <div class="main-form">
     <div class="row">
-        <div class="col-sm-2"></div>
-        <div class="col-sm-8">
-            <div class="row">
-                <div class="col-sm-6">
-                    <p>ini kiri</p>
+        <div class="col-sm-6">
+            <div class="kiri">
+                <div class="kiri-image">
+                    <img src="asset/img/logoudinus.png" alt="">
                 </div>
-                <div class="col-sm-6">
-                    <p>ini kanan</p>
+                <div class="kiri-body">
+                    Bagi mahasiswa yang ingin melakukan login.
+                    <br>
+                    Harap menggunakan akun SiAdin (bukan Akun Email Mahasiswa).
+                    <br>
+                    Jika mengalami kendala dalam login, silahkan untuk menghubungi langsung kepada pihak terkait.
+                </div>
+                
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="kanan">
+                <div class="kanan-head">
+
+                </div>    
+                <div class="kanan-body">
+                <form action="" method="post" >
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="nim_mahasiswa" placeholder="NIM / NPP">
+                    </div>
+                    <div class="form-group">
+                        <input type="password" class="form-control" NAME="password_mahasiswa" placeholder="Password Siadin">
+                    </div>
+                    <button type="submit" name="login" class="form-control btn btn-danger">Submit</button>
+                </form>
                 </div>
             </div>
         </div>
-        <div class="col-sm-2"></div>
     </div>
     </div>
 </div>
