@@ -27,13 +27,20 @@
 }
 .section1 .card .card-header{
     background: #23D1b9;
+    font-size: 20px;
+    font-weight: 700;
 }
 .section2 .card .card-header{
     background: #23D1b9;
+    font-size: 20px;
+    font-weight: 700;
 }
 .section3 .card .card-header{
     background: #23D1b9;
+    font-size: 20px;
+    font-weight: 700;
 }
+
 /* --- BUKU --- */
 #body .card .table thead{
     background: #eee;

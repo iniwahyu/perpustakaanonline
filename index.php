@@ -24,7 +24,7 @@
         <div class="col-md-6">
             <div class="card"> 
                 <div class="card-header text-white" >
-                    Featured <i class="fa fa-book" aria-hidden="true"></i>
+                    <i class="fa fa-book " aria-hidden="true"></i> Featured 
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">Special title treatment</h5>
@@ -58,12 +58,21 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header text-white">
-                    Featured
+                    <i class="fa fa-check-square" aria-hidden="true"></i> Kata Sambutan Ketua Perpustakaan
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <p class="card-text">
+                    Assalamualaikum wr.wb.<br>
+                        Para pembaca serta pemerhati Blog Perpustakaan Sekolah yang saya sayangi dan saya 
+                    banggakan, dalam kesempatan ini perlu saya mengucapkan rasa berbahagia yang tidak 
+                    terhingga karena adanya gerakan peduli terhadap perpustakaan sekolah.
+                    Lebih berbahagia lagi karena lomba blog perpustakaan sekolah ini dapat diakses oleh seluruh lapisan masyarakat.
+                    Perlu diketahui bahwa keberadaan perpustakaan di Blora, khususnya perpustakaan sekolah di Kabupaten Blora ini kurang  begitu 
+                    mendapat perhatian serius dari masyarakat. Lebih menyedihkan lagi bahwa perpustakan-perpustakaan di sekolah pun 
+                    seperti terasing bagi penggunanya. Padahal fungsi dan makna keberadaan perpustakaan sekolah sangat penting bagi siswa. 
+                    Sehubungan dengan hal tersebut perlu dicari penyebab kemunculan dan solusi terbaiknya, agar perpustakaan sekolah dapat 
+                    menjadi daya tarik bagi siswa.
+                    </p>
                 </div>
             </div>
         </div>
@@ -79,7 +88,7 @@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header text-white">
-                    Featured
+                    <i class="fa fa-refresh" aria-hidden="true"></i> Buku Terbaru
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">Special title treatment</h5>
@@ -92,7 +101,7 @@
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header text-white">
-                    Featured
+                    <i class="fa fa-history" aria-hidden="true"></i> History Peminjaman
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">Special title treatment</h5>
