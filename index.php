@@ -37,7 +37,7 @@
 
         <div class="col-md-6">
             <div class="card">
-                <div class="card-header text-white bg-danger">
+                <div class="card-header text-white">
                     Featured
                 </div>
                 <div class="card-body">
@@ -58,7 +58,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header text-white bg-danger">
+                <div class="card-header text-white">
                     Featured
                 </div>
                 <div class="card-body">
@@ -79,7 +79,7 @@
     <div class="row">
         <div class="col-md-6">
             <div class="card">
-                <div class="card-header text-white bg-danger">
+                <div class="card-header text-white">
                     Featured
                 </div>
                 <div class="card-body">
@@ -92,7 +92,7 @@
 
         <div class="col-md-6">
             <div class="card">
-                <div class="card-header text-white bg-danger">
+                <div class="card-header text-white">
                     Featured
                 </div>
                 <div class="card-body">
