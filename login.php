@@ -6,14 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Perpustakaan Udinus | Login</title>
 
-    <?php require_once "src/link_css.php"; ?>
+    <link rel="stylesheet" href="asset/css/bootstrap.min.css">
+    <link rel="stylesheet" href="asset/css/style.css">
+    <link rel="stylesheet" href="asset/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="asset/css/datatables.min.css">
+    <link rel="stylesheet" href="asset/css/dataTables.bootstrap4.min.css">
 
 </head>
 <body id="backlogin">
-
-<div id="header">
-<?php require_once "menu.php"; ?>
-</div>
 
 <div id="bodylogin" style="margin-top: 15px;">
 <div class="container">
@@ -23,6 +23,7 @@
             <div class="kiri">
                 <div class="kiri-image">
                     <img src="asset/img/logoudinus.png" alt="">
+                    <img src="bgudinus.jpg" alt="">
                 </div>
                 <div class="kiri-body">
                     Bagi mahasiswa yang ingin melakukan login.
@@ -57,13 +58,9 @@
 </div>
 </div>
 
-<div id="footer">
-</div>
-
 <!-- SCRIPT -->
-<script src=""></script>
-<script src="asset/js/bootstrap.min.js"></script>
 <script src="asset/js/jquery-3.min.js"></script>
+<script src="asset/js/bootstrap.min.js"></script>
 <?php require_once "src/link_js.php"; ?>
 
 <script>

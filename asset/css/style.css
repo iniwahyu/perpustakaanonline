@@ -14,8 +14,9 @@
 }
 
 /* --- LOGIN REGISTER --- */
-#backlogin{
-    background: #e6e6e6;
+#bodylogin{
+    background: url('bgudinus.jpg');
+    /* background-size: 100% 100%; */
 }
 #bodylogin .main-form{
     background: #0984e3;
