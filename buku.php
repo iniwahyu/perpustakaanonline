@@ -10,19 +10,17 @@
     <?php require_once "src/link_css.php"; ?>
 
 </head>
-<body>
+<body id="backbuku">
 
 <div id="header">
 <?php require_once "menu.php"; ?>
 </div>
 
-<div id="body" style="margin-top: 15px;">
+<div id="body">
 <div class="container">
+    <div class="main-buku">
     <div class="row">
-        <div class="col-sm-1">
-        </div>
-
-        <div class="col-sm-10">
+        <div class="col-sm-12">
             <div class="card">
                 <div class="card-header bg-dark text-white">
                     Daftar Buku <span><a href="tambahbuku.php" class="btn btn-primary" >Tambah Buku</a></span>
@@ -59,7 +57,7 @@
                                     echo '<p class="btn btn-danger">Tidak Tersedia</p>';
                                 }?>
                             </td>
-                            <td><a href="">Pinjam</a></td>
+                            <td><a href="pinjambuku.php">Pinjam</a></td>
                         </tr>
                     <?php } ?>
                     </tbody>
@@ -68,8 +66,7 @@
                 </div>
             </div>
         </div>
-
-        <div class="col-sm-1"></div>
+    </div>
     </div>
 </div>
 </div>

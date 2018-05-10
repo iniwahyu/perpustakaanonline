@@ -17,6 +17,7 @@ body{
 /* --- HALAMAN UTAMA --- */
 #body{
     background: #ecf0f1;
+    padding: 1px;
 }
 .section1{
     margin-top: 30px;
@@ -64,6 +65,13 @@ body{
 }
 
 /* --- BUKU --- */
+#backbuku{
+    background: #eee;
+    padding: 1px;
+}
+#body .main-buku{
+    margin-top: 30px;
+}
 #body .card .table thead{
     background: #eee;
 }
@@ -121,4 +129,22 @@ body{
 }
 #bodylogin .main-form .kanan-body{
     padding-top: 100px;
+}
+
+/* --- PINJAM BUKU --- */
+#backpinjam{
+    background: #eee;
+}
+#bodypinjam .form-pinjam{
+    background: #fff;
+    padding: 30px;
+    margin: 20px 0;
+}
+
+/* --- BUKU TAMU --- */
+#backbukutamu{
+    background: #eee;
+}
+#body .form-bukutamu{
+    margin-top: 30px;
 }

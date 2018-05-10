@@ -115,10 +115,6 @@
 </div>
 <!-- INI PENUTUP CONTAINER BAGIAN BAWAH -->
 
-
-
-
-
 <div id="footer">
 </div>
 
