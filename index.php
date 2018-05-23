@@ -1,6 +1,15 @@
+<?php require_once "koneksi.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
+<?php
+if ( !isset($_SESSION['user'] )) {
+    header('Location: login.php');
+}
+
+$session = $_SESSION['user'];
+?>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -23,33 +32,76 @@
     <div class="row">
         <div class="col-md-6">
             <div class="card"> 
-                <div class="card-header text-white" >
-                    <i class="fa fa-book " aria-hidden="true"></i> <span>Featured</span>  
-                </div>
                 <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <i class="fa fa-user fa-4x mr-auto" aria-hidden="true"></i>  
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <span>
+                                <?php
+                                $siswa = mysqli_query($mydb, "SELECT nama FROM siswa WHERE nim = '$session' ");
+                                $result = mysqli_fetch_assoc($siswa);
+
+                                if( $result['nama'] == null ){
+                                    echo 'Nama Belum Tersedia';
+                                }else{
+                                    echo $result['nama'];
+                                } 
+                                ?> 
+                            </span>
+                            <h4>
+                            <?php echo $_SESSION['user']; ?>
+                            </h4>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
 
         <div class="col-md-6">
-            <div class="card">
-                <div class="card-header text-white">
-                    <span>Featured</span>
-                </div>
+            <div class="card"> 
                 <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <div class="row">
+                        <div class="col-sm-6">
+                        <i class="fa fa-book fa-4x mr-auto" aria-hidden="true"></i>  
+                        </div>
+                        <div class="col-sm-6 text-right">
+                            <span>Jumlah Buku</span>
+                            <h4>
+                                <?php
+                                $buku = mysqli_num_rows(mysqli_query($mydb, "SELECT * FROM buku"));
+                                // $row = mysqli_fetch_assoc($buku);
+                                echo $buku . " Buah Buku";
+                                ?>
+                            </h4>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div> 
+        </div>
+
     </div>
 </div>
 </div>
 <!-- INI PENUTUP CONTAINER BAGIAN ATAS -->
+
+<!-- ALERT -->
+<div class="secitonalert">
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+        <?php 
+        if( $result == null ) { ?>
+            <div class="alert alert-danger" role="alert">
+                Sepertinya Data Diri dengan Nim <?php echo $session; ?> belum lengkap.
+                Silahkan untuk mengisi Data Diri di <a href="updateprofil.php">Profil Mahasiswa</a>
+            </div>
+        <?php } ?>
+        </div>
+    </div>
+</div>
+</div>
 
 <!-- INI CONTAINER BAGIAN TENGAH -->
 <div class="section2">
@@ -91,9 +143,30 @@
                     <i class="fa fa-refresh" aria-hidden="true"></i> <span>Buku Terbaru</span>
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                            <th scope="col">Kode</th>
+                            <th scope="col">Nama</th>
+                            <th scope="col">Pengarang</th>
+                            <th scope="col">Penerbit</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <?php
+                        $query = mysqli_query($mydb, "SELECT * FROM buku ORDER BY kodebuku DESC LIMIT 5");
+                        while($row = mysqli_fetch_array($query)){ ?>
+                            <tr>
+                                <th scope="row"><?php echo $row['kodebuku']; ?></th>
+                                <td><?php echo $row['judulbuku']; ?></td>
+                                <td><?php echo $row['pengarangbuku']; ?></td>
+                                <td><?php echo $row['penerbitbuku']; ?></td>
+                            </tr>
+                        <?php } ?>
+                        
+                        </tbody>
+                    </table>
+                    <a href="buku.php" class="btn btn-primary w-100"> LIHAT SEMUA BUKU </a>
                 </div>
             </div>
         </div>
@@ -104,9 +177,36 @@
                     <i class="fa fa-history" aria-hidden="true"></i> <span>History Peminjaman</span>
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title">Special title treatment</h5>
-                    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">First</th>
+                            <th scope="col">Last</th>
+                            <th scope="col">Handle</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>@mdo</td>
+                            </tr>
+                            <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>@fat</td>
+                            </tr>
+                            <tr>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td>the Bird</td>
+                            <td>@twitter</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div> 

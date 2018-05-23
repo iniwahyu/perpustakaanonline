@@ -10,8 +10,9 @@ body{
 .navbar a:hover{
     color: #000;
 }
-.navbar .navbar-nav .btn{
-    background: #23D1b9;
+
+.navbar .navbar-nav ul.drop{
+    display: none;
 }
 
 /* --- HALAMAN UTAMA --- */
@@ -21,19 +22,15 @@ body{
 }
 .section1{
     margin-top: 30px;
+    margin-bottom: 15px;
 }
 .section2{
-    margin-top: 30px;
+    margin-top: 5px;
     font-family: 'Roboto', sans-serif;
 }
 .section3{
     margin-top: 30px;
     margin-bottom: 30px;
-}
-.section1 .card .card-header{
-    background: #23D1b9;
-    font-size: 20px;
-    font-weight: 700;
 }
 .section1 .card .card-header .fa{
     color: #000;
@@ -42,26 +39,26 @@ body{
     color: #000;
 }
 .section2 .card .card-header{
-    background: #23D1b9;
+    background: #0984e3;
     font-size: 20px;
     font-weight: 700;
 }
 .section2 .card .card-header .fa{
-    color: #000;
+    color: #fff;
 }
 .section2 .card .card-header span{
-    color: #000;
+    color: #fff;
 }
 .section3 .card .card-header{
-    background: #23D1b9;
+    background: #0984e3;
     font-size: 20px;
     font-weight: 700;
 }
 .section3 .card .card-header .fa{
-    color: #000;
+    color: #fff;
 }
 .section3 .card .card-header span{
-    color: #000;
+    color: #fff;
 }
 
 /* --- BUKU --- */
@@ -90,18 +87,20 @@ body{
     position: absolute;
     top: 0;
     right: 0;
-    filter: blur(10px);
+    filter: blur(5px);
 }
 #bodylogin .main-form{
-    background: #2980b9;
-    border: 1px solid #000;
+    background: #fff;
     height: 100%;
     position: relative;
     z-index: 99;
     margin-top: 120px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
+
 #bodylogin .main-form .kiri{
-    background: #eee;
+    background: #2979FF;
+    color: #fff;
     height: 100%;
     padding-top: 85px;
     padding-bottom: 25px;
@@ -121,8 +120,6 @@ body{
     margin-bottom: 15px;
 }
 #bodylogin .main-form .kanan{
-    background: #2980b9;
-    color: #fff;
     height: 100%;
     padding-top: 40px;
     padding-right: 30px;
@@ -147,4 +144,46 @@ body{
 }
 #body .form-bukutamu{
     margin-top: 30px;
+}
+
+/* --- PROFIL --- */
+#backprofil{
+    background: #ecf0f1;
+    min-height: 100vh;
+}
+.section-profil .custom-header{
+    background: #00a7d0 !important;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+.section-profil .custom-header img{
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+.section-profil .custom-header span{
+    padding-left: 5px;
+}
+.section-profil .card-body ul{
+    padding-left: 0;
+    list-style: none;
+}
+.section-profil .card-body ul li{
+    border-bottom: 1px solid #f4f4f4;
+    margin: 0;
+    padding: 5px;
+}
+
+#backupdate{
+    background: #ecf0f1;
+    min-height: 100vh;
+}
+.section-update .card{
+    margin-top: 30px;
+}
+.section-update .card-header{
+    background: #2979FF;
+    color: #fff;
 }

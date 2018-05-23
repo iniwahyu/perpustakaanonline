@@ -15,11 +15,14 @@
       <li class="nav-item">
         <a class="nav-link" href="bukutamu.php">Buku Tamu</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="profil.php">Profil</a>
+      </li>
     </ul>
 
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a class="nav-link btn" href="#">Login</a>
+        <a href="logout.php" class="btn btn-outline-primary"> Logout</a>
       </li>
     </ul>
   </div>

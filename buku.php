@@ -23,7 +23,7 @@
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-header bg-dark text-white">
-                    Daftar Buku <span><a href="tambahbuku.php" class="btn btn-primary" >Tambah Buku</a></span>
+                    Daftar Buku 
                 </div>
                 <div class="card-body">
                 <div class="table-responsive">
@@ -57,7 +57,7 @@
                                     echo '<p class="btn btn-danger">Tidak Tersedia</p>';
                                 }?>
                             </td>
-                            <td><a href="pinjambuku.php">Pinjam</a></td>
+                            <td><a href="pinjambuku.php?kode=<?php echo $row['kodebuku']; ?>">Pinjam</a></td>
                         </tr>
                     <?php } ?>
                     </tbody>

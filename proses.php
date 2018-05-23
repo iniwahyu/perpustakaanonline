@@ -1,5 +1,42 @@
 <?php
 
+function register($nim, $password){
+
+    global $mydb;
+
+    $nim            = mysqli_real_escape_string($mydb, $nim);
+    $password       = mysqli_real_escape_string($mydb, $password);
+
+    $password = password_hash($password, PASSWORD_DEFAULT); 
+	$query = "INSERT INTO user (username, password) VALUES ('$nim', '$password') ";
+
+	if( mysqli_query($mydb, $query) ){
+		return true;
+	}else{
+		return false;
+	}
+}
+
+function login($nim, $password){
+
+    global $mydb;
+
+    $nim     		= mysqli_real_escape_string($mydb, $nim);
+	$password 		= mysqli_real_escape_string($mydb, $password);
+
+	$query = "SELECT password FROM user WHERE username = '$nim' ";
+	$result = mysqli_query($mydb, $query);
+	$hash 	= mysqli_fetch_assoc($result)['password'];
+
+	// Menguji Password Hash
+	if ( password_verify($password, $hash) ) {
+		return true;
+	}else{
+		return false;
+	}
+
+}
+
 function tambahbuku($kode, $judul, $pengarang, $penerbit, $lokasi, $status){
 
     global $mydb;
@@ -23,5 +60,51 @@ function tambahbuku($kode, $judul, $pengarang, $penerbit, $lokasi, $status){
 
 }
 
+function profilawal($nim, $nama, $progdi, $semester, $email, $nohp){
+
+    global $mydb;
+
+    $nim = mysqli_real_escape_string($mydb, $nim);
+    $nama = mysqli_real_escape_string($mydb, $nama);
+    $progdi = mysqli_real_escape_string($mydb, $progdi);
+    $semester = mysqli_real_escape_string($mydb, $semester);
+    $email = mysqli_real_escape_string($mydb, $email);
+    $nohp = mysqli_real_escape_string($mydb, $nohp);
+
+    $query = "INSERT INTO siswa (nim, nama, progdi, semester, email, nohp) VALUES
+            ('$nim', '$nama' , '$progdi', '$semester', '$email', '$nohp') ";
+    $tambah = mysqli_query($mydb, $query);
+
+    if( $tambah ){
+        return true;
+    }else{
+        return false;
+    }
+
+}
+
+function pinjambuku($kode, $namabuku, $nim, $nama, $email, $tp, $tk){
+
+    global $mydb;
+
+    $kode = mysqli_real_escape_string($mydb, $kode);
+    $namabuku = mysqli_real_escape_string($mydb, $namabuku);
+    $nim = mysqli_real_escape_string($mydb, $nim);
+    $nama = mysqli_real_escape_string($mydb, $nama);
+    $email = mysqli_real_escape_string($mydb, $email);
+    $tp = mysqli_real_escape_string($mydb, $tp);
+    $tk = mysqli_real_escape_string($mydb, $tk);
+
+    $query = "INSERT INTO peminjaman (kodebuku, judulbuku, nimpeminjam, namapeminjam, emailpeminjam, tanggalpinjam, tanggalkembali)
+             VALUES ('$kode', '$namabuku', '$nim', '$nama', '$email', '$tp', '$tk') ";
+    $pinjam = mysqli_query($mydb, $query);
+
+    if( $pinjam ){
+        return true;
+    }else{
+        return false;
+    }
+
+}
 
 ?>

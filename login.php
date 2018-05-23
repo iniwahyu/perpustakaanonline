@@ -1,3 +1,4 @@
+<?php require_once 'koneksi.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,14 +38,38 @@
 
                 </div>    
                 <div class="kanan-body">
-                <form action="" method="post" >
+
+                <?php 
+
+                if(isset($_POST['login'])) {
+                    
+                    $nim        = $_POST['nim_mahasiswa'];
+                    $password   = $_POST['password_mahasiswa'];
+
+                    if(!empty(trim($nim)) && !empty(trim($password)) ){
+                        if(login($nim, $password)){
+                            $_SESSION['user'] = $nim;
+                            header('Location: index.php');
+                        }else{
+                            echo 'GAGAL LOGIN';
+                        }
+                    }else{
+                        echo 'Ada form kosong';
+                    }
+
+                }
+
+                ?>
+
+                <form action="login.php" method="post" >
                     <div class="form-group">
                         <input type="text" class="form-control" name="nim_mahasiswa" placeholder="NIM / NPP">
                     </div>
                     <div class="form-group">
-                        <input type="password" class="form-control" NAME="password_mahasiswa" placeholder="Password Siadin">
+                        <input type="password" class="form-control" name="password_mahasiswa" placeholder="Password Siadin">
                     </div>
-                    <button type="submit" name="login" class="form-control btn btn-danger">Submit</button>
+                    <button type="submit" name="login" class="form-control btn btn-danger">Login</button>
+                    <small>Bagi yang belum punya akun. Silahkan untuk mendaftar di halaman <a href="register.php"><b>Register</b></a></small>
                 </form>
                 </div>
             </div>

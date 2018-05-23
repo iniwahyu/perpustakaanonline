@@ -16,31 +16,76 @@
 <?php require_once "menu.php"; ?>
 </div>
 
+<?php
+
+$get = $_GET['kode'];
+$query = mysqli_query($mydb, "SELECT * FROM buku WHERE kodebuku = '$get' " );
+$hasil = mysqli_fetch_assoc($query);
+
+
+?>
+
 <div id="bodypinjam">
 <div class="container">
     <div class="form-pinjam">
     <div class="row">
         <div class="col-sm-8">
-            <form>
+        <?php
+
+        if( isset($_POST['pinjam'])) {
+
+            $kode = $_POST['kodebuku'];
+            $namabuku = $_POST['namabuku'];
+            $nim = $_POST['nimpeminjam'];
+            $nama = $_POST['namapeminjam'];
+            $email = $_POST['emailpeminjam'];
+            $tp = $_POST['tanggalpinjam'];
+            $tk = $_POST['tanggalkembali'];
+
+            if(pinjambuku($kode, $namabuku, $nim, $nama, $email, $tp, $tk)){
+                echo 'Berhasil';
+            }else{
+                echo 'Gagal';
+            }
+
+        }
+
+        ?>
+            <form action="pinjambuku.php" method="POST" >
+                <?php
+                $pinjam = mysqli_query($mydb, "SELECT * FROM siswa");
+                $result = mysqli_fetch_assoc($pinjam);
+                ?>
                 <div class="form-group">
                     <label>Kode Buku</label>
-                    <input type="text" class="form-control" name="kodebuku" placeholder="Masukkan Kode Buku">
+                    <input type="text" class="form-control" name="kodebuku" value="<?php echo $hasil['kodebuku']; ?>" readonly>
                 </div>
                 <div class="form-group">
                     <label>Nama Buku</label>
-                    <input type="text" class="form-control" name="namabuku" placeholder="Masukkan Nama Buku">
+                    <input type="text" class="form-control" name="namabuku" value="<?php echo $hasil['judulbuku']; ?>" readonly>
                 </div>
                 <div class="form-group">
                     <label>NIM Peminjam</label>
-                    <input type="text" class="form-control" name="kodebuku" placeholder="Masukkan NIM Mahasiswa">
+                    <input type="text" class="form-control" name="nimpeminjam" value="<?php echo $result['nim']; ?>" readonly>
                 </div>
                 <div class="form-group">
                     <label>Nama Peminjam</label>
-                    <input type="text" class="form-control" name="kodebuku" placeholder="Masukkan Nama Mahasiswa">
+                    <input type="text" class="form-control" name="namapeminjam" value="<?php echo $result['nama']; ?>" readonly>
                 </div>
                 <div class="form-group">
-                    <label>Program Studi</label>
-                    <input type="text" class="form-control" name="kodebuku" placeholder="Masukkan Program Studi Mahasiswa">
+                    <label>Email Peminjam</label>
+                    <input type="text" class="form-control" name="emailpeminjam" value="<?php echo $result['email']; ?>" readonly>
+                </div>
+                <?php
+                date_default_timezone_set("Asia/Jakarta");
+                $tgl1 = date("d-m-Y");
+                $tgl2 = date('d-m-Y', strtotime(' +7 days', strtotime($tgl1)));
+                ?>
+                <div class="form-group">
+                    <input type="hidden" class="form-control" name="tanggalpinjam" value="<?php echo $tgl1; ?>" readonly>
+                </div>
+                <div class="form-group">
+                    <input type="hidden" class="form-control" name="tanggalkembali" value="<?php echo $tgl2; ?>" readonly>
                 </div>
                 <button type="submit" name="pinjam" class="btn btn-primary form-control">Pinjam Buku</button>
             </form>
