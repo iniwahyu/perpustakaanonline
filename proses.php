@@ -83,20 +83,21 @@ function profilawal($nim, $nama, $progdi, $semester, $email, $nohp){
 
 }
 
-function pinjambuku($kode, $namabuku, $nim, $nama, $email, $tp, $tk){
+function pinjambuku($kode, $judulbuku, $nim, $nama, $email, $tp, $tk, $st){
 
     global $mydb;
 
     $kode = mysqli_real_escape_string($mydb, $kode);
-    $namabuku = mysqli_real_escape_string($mydb, $namabuku);
+    $judulbuku = mysqli_real_escape_string($mydb, $judulbuku);
     $nim = mysqli_real_escape_string($mydb, $nim);
     $nama = mysqli_real_escape_string($mydb, $nama);
     $email = mysqli_real_escape_string($mydb, $email);
     $tp = mysqli_real_escape_string($mydb, $tp);
     $tk = mysqli_real_escape_string($mydb, $tk);
+    $st = mysqli_real_escape_string($mydb, $st);
 
-    $query = "INSERT INTO peminjaman (kodebuku, judulbuku, nimpeminjam, namapeminjam, emailpeminjam, tanggalpinjam, tanggalkembali)
-             VALUES ('$kode', '$namabuku', '$nim', '$nama', '$email', '$tp', '$tk') ";
+    $query = "INSERT INTO peminjaman (kodebuku, judulbuku, nimpeminjam, namapeminjam, emailpeminjam, tanggalpinjam, tanggalkembali, statusbuku)
+             VALUES ('$kode', '$judulbuku', '$nim', '$nama', '$email', '$tp', '$tk', '$st') ";
     $pinjam = mysqli_query($mydb, $query);
 
     if( $pinjam ){

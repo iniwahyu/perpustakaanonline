@@ -62,10 +62,6 @@ body{
 }
 
 /* --- BUKU --- */
-#backbuku{
-    background: #eee;
-    padding: 1px;
-}
 #body .main-buku{
     margin-top: 30px;
 }
@@ -151,8 +147,13 @@ body{
     background: #ecf0f1;
     min-height: 100vh;
 }
+.section-profil{
+    margin-top: 30px;
+}
+.section-profil .card-header{
+    background: #2979FF;
+}
 .section-profil .custom-header{
-    background: #00a7d0 !important;
     color: #fff;
     font-weight: 700;
     text-transform: uppercase;

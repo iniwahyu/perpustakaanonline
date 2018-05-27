@@ -39,7 +39,7 @@ $session = $_SESSION['user'];
                     <img src="https://img.purch.com/w/660/aHR0cDovL3d3dy5saXZlc2NpZW5jZS5jb20vaW1hZ2VzL2kvMDAwLzA5Ny85NTkvb3JpZ2luYWwvc2h1dHRlcnN0b2NrXzYzOTcxNjY1LmpwZw==" alt="">
                     <span>
                         <?php 
-                        $query = mysqli_query($mydb, "SELECT * FROM siswa");
+                        $query = mysqli_query($mydb, "SELECT * FROM siswa WHERE nim = '$session' ");
                         $result = mysqli_fetch_assoc($query);
                         echo $result['nama']; ?>
                     </span>
@@ -64,21 +64,37 @@ $session = $_SESSION['user'];
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header text-white">
-                    <i class="fa fa-check-square" aria-hidden="true"></i> <span>Kata Sambutan Ketua Perpustakaan</span>
+                    <i class="fa fa-history" aria-hidden="true"></i> <span>History Peminjaman</span>
                 </div>
                 <div class="card-body">
-                    <p class="card-text">
-                    Assalamualaikum wr.wb.<br>
-                        Para pembaca serta pemerhati Blog Perpustakaan Sekolah yang saya sayangi dan saya 
-                    banggakan, dalam kesempatan ini perlu saya mengucapkan rasa berbahagia yang tidak 
-                    terhingga karena adanya gerakan peduli terhadap perpustakaan sekolah.
-                    Lebih berbahagia lagi karena lomba blog perpustakaan sekolah ini dapat diakses oleh seluruh lapisan masyarakat.
-                    Perlu diketahui bahwa keberadaan perpustakaan di Blora, khususnya perpustakaan sekolah di Kabupaten Blora ini kurang  begitu 
-                    mendapat perhatian serius dari masyarakat. Lebih menyedihkan lagi bahwa perpustakan-perpustakaan di sekolah pun 
-                    seperti terasing bagi penggunanya. Padahal fungsi dan makna keberadaan perpustakaan sekolah sangat penting bagi siswa. 
-                    Sehubungan dengan hal tersebut perlu dicari penyebab kemunculan dan solusi terbaiknya, agar perpustakaan sekolah dapat 
-                    menjadi daya tarik bagi siswa.
-                    </p>
+                <div class="col-md-12">
+                    <?php
+                    $history = mysqli_query($mydb, "SELECT * FROM peminjaman WHERE nimpeminjam = '$session' ");
+
+                    if ( mysqli_num_rows($history) ){ ?>
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col" width="5">Kode</th>
+                                <th scope="col">Judul</th>
+                                <th scope="col">Pinjam</th>
+                                <th scope="col">Kembali</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <?php
+                        while($row = mysqli_fetch_assoc($history)) { ?>
+                            <tr>
+                                <td><?php echo $row['kodebuku']; ?></td>
+                                <td><?php echo $row['judulbuku']; ?></td>
+                                <td><?php echo $row['tanggalpinjam']; ?></td>
+                                <td><?php echo $row['tanggalkembali']; ?></td>
+                            </tr>
+                        <?php }  ?>
+                        </tbody>
+                    </table>
+                    <?php }else{ echo 'Belum Pernah Melakukan Peminjaman'; } ?>
+                </div> 
                 </div>
             </div>
         </div>

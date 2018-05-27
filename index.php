@@ -180,31 +180,23 @@ $session = $_SESSION['user'];
                     <table class="table">
                         <thead class="thead-dark">
                             <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">First</th>
-                            <th scope="col">Last</th>
-                            <th scope="col">Handle</th>
+                            <th scope="col">Kode</th>
+                            <th scope="col">Judul</th>
+                            <th scope="col">Pinjam</th>
+                            <th scope="col">Kembali</th>
                             </tr>
                         </thead>
                         <tbody>
+                        <?php
+                        $history = mysqli_query($mydb, "SELECT * FROM peminjaman WHERE nimpeminjam = '$session' ");
+                        while($row = mysqli_fetch_assoc($history)) { ?>
                             <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
+                                <td><?php echo $row['kodebuku']; ?></td>
+                                <td><?php echo $row['judulbuku']; ?></td>
+                                <td><?php echo $row['tanggalpinjam']; ?></td>
+                                <td><?php echo $row['tanggalkembali']; ?></td>
                             </tr>
-                            <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                            </tr>
-                            <tr>
-                            <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                            </tr>
+                        <?php } ?>
                         </tbody>
                     </table>
                 </div>

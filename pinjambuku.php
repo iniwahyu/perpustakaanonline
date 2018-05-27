@@ -21,6 +21,7 @@
 $get = $_GET['kode'];
 $query = mysqli_query($mydb, "SELECT * FROM buku WHERE kodebuku = '$get' " );
 $hasil = mysqli_fetch_assoc($query);
+$session = $_SESSION['user'];
 
 
 ?>
@@ -35,14 +36,15 @@ $hasil = mysqli_fetch_assoc($query);
         if( isset($_POST['pinjam'])) {
 
             $kode = $_POST['kodebuku'];
-            $namabuku = $_POST['namabuku'];
+            $judulbuku = $_POST['judulbuku'];
             $nim = $_POST['nimpeminjam'];
             $nama = $_POST['namapeminjam'];
             $email = $_POST['emailpeminjam'];
             $tp = $_POST['tanggalpinjam'];
             $tk = $_POST['tanggalkembali'];
+            $st = $_POST['statusbuku'];
 
-            if(pinjambuku($kode, $namabuku, $nim, $nama, $email, $tp, $tk)){
+            if(pinjambuku($kode, $judulbuku, $nim, $nama, $email, $tp, $tk, $st)){
                 echo 'Berhasil';
             }else{
                 echo 'Gagal';
@@ -53,7 +55,7 @@ $hasil = mysqli_fetch_assoc($query);
         ?>
             <form action="pinjambuku.php" method="POST" >
                 <?php
-                $pinjam = mysqli_query($mydb, "SELECT * FROM siswa");
+                $pinjam = mysqli_query($mydb, "SELECT * FROM siswa WHERE nim = '$session'");
                 $result = mysqli_fetch_assoc($pinjam);
                 ?>
                 <div class="form-group">
@@ -61,8 +63,8 @@ $hasil = mysqli_fetch_assoc($query);
                     <input type="text" class="form-control" name="kodebuku" value="<?php echo $hasil['kodebuku']; ?>" readonly>
                 </div>
                 <div class="form-group">
-                    <label>Nama Buku</label>
-                    <input type="text" class="form-control" name="namabuku" value="<?php echo $hasil['judulbuku']; ?>" readonly>
+                    <label>Judul Buku</label>
+                    <input type="text" class="form-control" name="judulbuku" value="<?php echo $hasil['judulbuku']; ?>" readonly>
                 </div>
                 <div class="form-group">
                     <label>NIM Peminjam</label>
@@ -74,18 +76,23 @@ $hasil = mysqli_fetch_assoc($query);
                 </div>
                 <div class="form-group">
                     <label>Email Peminjam</label>
-                    <input type="text" class="form-control" name="emailpeminjam" value="<?php echo $result['email']; ?>" readonly>
+                    <input type="" class="form-control" name="emailpeminjam" value="<?php echo $result['email']; ?>" readonly>
                 </div>
                 <?php
                 date_default_timezone_set("Asia/Jakarta");
-                $tgl1 = date("d-m-Y");
-                $tgl2 = date('d-m-Y', strtotime(' +7 days', strtotime($tgl1)));
+                $tgl1 = date("Y-m-d");
+                $tgl2 = date('Y-m-d', strtotime(' +7 days', strtotime($tgl1)));
                 ?>
                 <div class="form-group">
-                    <input type="hidden" class="form-control" name="tanggalpinjam" value="<?php echo $tgl1; ?>" readonly>
+                    <label>Tanggal Pinjam</label>
+                    <input type="date" class="form-control" name="tanggalpinjam" value="<?php echo $tgl1; ?>" readonly>
                 </div>
                 <div class="form-group">
-                    <input type="hidden" class="form-control" name="tanggalkembali" value="<?php echo $tgl2; ?>" readonly>
+                    <label>Tanggal Kembali</label>
+                    <input type="date" class="form-control" name="tanggalkembali" value="<?php echo $tgl2; ?>" readonly>
+                </div>
+                <div class="form-group">
+                    <input type="hidden" class="form-control" name="statusbuku" value="Dipinjam" readonly>
                 </div>
                 <button type="submit" name="pinjam" class="btn btn-primary form-control">Pinjam Buku</button>
             </form>

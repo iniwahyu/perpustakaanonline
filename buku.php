@@ -20,7 +20,7 @@
 <div class="container">
     <div class="main-buku">
     <div class="row">
-        <div class="col-sm-12">
+        <div class="col-sm-12" style="margin-bottom: 10px;">
             <div class="card">
                 <div class="card-header bg-dark text-white">
                     Daftar Buku 
@@ -50,14 +50,27 @@
                             <td><?php echo $row['penerbitbuku']; ?></td>
                             <td><?php echo $row['lokasibuku']; ?></td>
                             <td>
-                                <?php 
-                                if($row['statusbuku'] == 'Tersedia' ){
-                                    echo '<p class="btn btn-success btn-sm">Tersedia</p>';
-                                }else{
+                                <?php
+                                $buku = $row['kodebuku'];
+                                $p = mysqli_query($mydb, "SELECT * FROM peminjaman WHERE kodebuku = '$buku' ");
+                                $y = mysqli_fetch_assoc($p);        
+                                
+                                if($y['statusbuku'] == 'Dipinjam'){
                                     echo '<p class="btn btn-danger">Tidak Tersedia</p>';
-                                }?>
+                                }else{
+                                    if( $row['statusbuku'] == 'Tersedia' ){
+                                        echo '<p class="btn btn-success">Tersedia</p>';
+                                    }
+                                    
+                                }
+                                ?>
                             </td>
-                            <td><a href="pinjambuku.php?kode=<?php echo $row['kodebuku']; ?>">Pinjam</a></td>
+                            <td>
+                                <?php
+                                if( $y['statusbuku'] != 'Dipinjam' ){ ?>
+                                    <a href="pinjambuku.php?kode=<?php echo $row['kodebuku']; ?>">Pinjam</a>
+                                <?php } ?>
+                            </td>
                         </tr>
                     <?php } ?>
                     </tbody>
@@ -66,6 +79,32 @@
                 </div>
             </div>
         </div>
+
+        <?php
+        $no = 1;
+        $info = mysqli_query($mydb, "SELECT * FROM peminjaman");
+
+        if( mysqli_num_rows($info) > 0 ){
+
+        ?>
+
+        <div class="col-sm-12">
+            <div class="alert alert-info" role="alert">
+                Buku yang <b>TIDAK TERSEDIA</b> akan <b>TERSEDIA</b> kembali pada.
+                <table class="table">
+                    <?php
+                    while( $row = mysqli_fetch_assoc($info) ) { 
+                    ?>
+                    <tr>
+                        <td> <?php echo $no++ . "."; ?> </td>
+                        <td> <?php echo $row['judulbuku']; ?> </td>
+                        <td> <?php echo $row['tanggalkembali']; ?> </td>
+                    </tr>                  
+                <?php } ?>
+                </table>
+            </div>  
+        </div>
+        <?php } ?>
     </div>
     </div>
 </div>
