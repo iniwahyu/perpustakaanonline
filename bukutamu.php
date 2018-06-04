@@ -24,7 +24,7 @@
         
         <div class="col-sm-8">
             <div class="card">
-                <div class="card-header bg-dark text-white">
+                <div class="card-header text-white">
                     Kritik dan Saran    
                 </div>
                 <div class="card-body">

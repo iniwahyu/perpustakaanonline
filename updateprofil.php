@@ -40,29 +40,15 @@ $session = $_SESSION['user'];
                 </div>
                 <div class="card-body">
                     <?php
-                    
-                    if( isset($_POST['update'])){
-                        $nim = $_POST['nim'];
-                        $nama = $_POST['nama'];
-                        $progdi = $_POST['progdi'];
-                        $semester = $_POST['semester'];
-                        $email = $_POST['email'];
-                        $nohp = $_POST['nohp'];
-
-                        if(!empty(trim($nim)) && !empty(trim($nama)) && !empty(trim($progdi)) && !empty(trim($semester)) && !empty(trim($email)) && !empty(trim($nohp)) ){
-                            if(profilawal($nim, $nama, $progdi, $semester, $email, $nohp)){
-                                echo 'Berhasil';
-                            }else{
-                                echo 'Gagal';
-                            }
+                    if(isset($_GET['status'])){
+                        if( $_GET['status'] == 'gagal' ){
+                            echo '<div class="p-3 mb-2 bg-danger text-white">Ups. Sepertinya Anda Salah Memasukkan Data.</div>';
                         }else{
-                            echo 'Form Kosong';
+                            echo '';
                         }
-
-                    }
-
+                    }                    
                     ?>
-                    <form action="updateprofil.php" method="POST" >
+                    <form action="proses/prosesupdateawal.php" method="POST" >
                         <div class="form-group">
                             <label>NIM</label>
                             <input type="text" class="form-control" name="nim" value="<?php echo $session; ?>" readonly>

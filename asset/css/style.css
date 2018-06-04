@@ -8,6 +8,7 @@ body{
     color: white;
 }
 .navbar a:hover{
+    background: #fff;
     color: #000;
 }
 
@@ -62,11 +63,14 @@ body{
 }
 
 /* --- BUKU --- */
-#body .main-buku{
+#backbuku .main-buku{
     margin-top: 30px;
 }
-#body .card .table thead{
+#backbuku .card .table thead{
     background: #eee;
+}
+#backbuku .card .card-header{
+    background: #2979FF;
 }
 
 /* --- LOGIN REGISTER --- */
@@ -138,9 +142,13 @@ body{
 #backbukutamu{
     background: #eee;
 }
-#body .form-bukutamu{
+#backbukutamu .form-bukutamu{
     margin-top: 30px;
 }
+#backbukutamu .card .card-header{
+    background: #2979FF;
+}
+
 
 /* --- PROFIL --- */
 #backprofil{

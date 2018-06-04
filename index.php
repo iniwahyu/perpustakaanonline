@@ -94,10 +94,22 @@ $session = $_SESSION['user'];
         <?php 
         if( $result == null ) { ?>
             <div class="alert alert-danger" role="alert">
-                Sepertinya Data Diri dengan Nim <?php echo $session; ?> belum lengkap.
-                Silahkan untuk mengisi Data Diri di <a href="updateprofil.php">Profil Mahasiswa</a>
+                Sayang sekali Data Diri dengan Nim <b><?php echo $session; ?></b> belum lengkap.
+                Silahkan untuk mengisi Data Diri di <a href="updateprofil.php ">Profil Mahasiswa</a>
             </div>
         <?php } ?>
+        </div>
+
+        <div class="col-lg-12">
+        <?php
+            if(isset($_GET['status'])){
+                if( $_GET['status'] == 'sukses' ){
+                    echo '<div class="p-3 mb-2 bg-success text-white">Telah Berhasil Melakukan Update Data Diri.</div>';
+                }else{
+                    echo '';
+                }
+            }                    
+        ?>
         </div>
     </div>
 </div>
@@ -142,8 +154,7 @@ $session = $_SESSION['user'];
                 <div class="card-header text-white">
                     <i class="fa fa-refresh" aria-hidden="true"></i> <span>Buku Terbaru</span>
                 </div>
-                <div class="card-body">
-                    <table class="table">
+                    <table class="table" style="margin-top: 5px;" >
                         <thead class="thead-dark">
                             <tr>
                             <th scope="col">Kode</th>
@@ -167,7 +178,7 @@ $session = $_SESSION['user'];
                         </tbody>
                     </table>
                     <a href="buku.php" class="btn btn-primary w-100"> LIHAT SEMUA BUKU </a>
-                </div>
+
             </div>
         </div>
 
@@ -177,6 +188,10 @@ $session = $_SESSION['user'];
                     <i class="fa fa-history" aria-hidden="true"></i> <span>History Peminjaman</span>
                 </div>
                 <div class="card-body">
+                <?php
+                $history = mysqli_query($mydb, "SELECT * FROM peminjaman WHERE nimpeminjam = '$session' ");
+                if( mysqli_num_rows($history) > 0 ){
+                ?>
                     <table class="table">
                         <thead class="thead-dark">
                             <tr>
@@ -188,7 +203,7 @@ $session = $_SESSION['user'];
                         </thead>
                         <tbody>
                         <?php
-                        $history = mysqli_query($mydb, "SELECT * FROM peminjaman WHERE nimpeminjam = '$session' ");
+                        
                         while($row = mysqli_fetch_assoc($history)) { ?>
                             <tr>
                                 <td><?php echo $row['kodebuku']; ?></td>
@@ -199,6 +214,7 @@ $session = $_SESSION['user'];
                         <?php } ?>
                         </tbody>
                     </table>
+                <?php }else{ echo 'Belum Pernah Melakukan Peminjaman'; } ?>
                 </div>
             </div>
         </div> 

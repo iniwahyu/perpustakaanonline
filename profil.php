@@ -64,14 +64,23 @@ $session = $_SESSION['user'];
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header text-white">
-                    <i class="fa fa-history" aria-hidden="true"></i> <span>History Peminjaman</span>
+                    History Peminjaman
                 </div>
                 <div class="card-body">
                 <div class="col-md-12">
+                <?php
+                if(isset($_GET['status'])){
+                    if($_GET['status'] == 'sukses'){
+                        echo '<div class="p-3 mb-2 bg-success text-white">Telah Berhasil Melakukan Peminjaman Buku.</div>';
+                    }else{
+                        echo '';
+                    }
+                }
+                ?>
                     <?php
                     $history = mysqli_query($mydb, "SELECT * FROM peminjaman WHERE nimpeminjam = '$session' ");
 
-                    if ( mysqli_num_rows($history) ){ ?>
+                    if ( mysqli_num_rows($history) > 0 ){ ?>
                     <table class="table">
                         <thead class="thead-dark">
                             <tr>

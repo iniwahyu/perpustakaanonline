@@ -31,29 +31,7 @@ $session = $_SESSION['user'];
     <div class="form-pinjam">
     <div class="row">
         <div class="col-sm-8">
-        <?php
-
-        if( isset($_POST['pinjam'])) {
-
-            $kode = $_POST['kodebuku'];
-            $judulbuku = $_POST['judulbuku'];
-            $nim = $_POST['nimpeminjam'];
-            $nama = $_POST['namapeminjam'];
-            $email = $_POST['emailpeminjam'];
-            $tp = $_POST['tanggalpinjam'];
-            $tk = $_POST['tanggalkembali'];
-            $st = $_POST['statusbuku'];
-
-            if(pinjambuku($kode, $judulbuku, $nim, $nama, $email, $tp, $tk, $st)){
-                echo 'Berhasil';
-            }else{
-                echo 'Gagal';
-            }
-
-        }
-
-        ?>
-            <form action="pinjambuku.php" method="POST" >
+            <form action="proses/prosespinjambuku.php" method="POST" >
                 <?php
                 $pinjam = mysqli_query($mydb, "SELECT * FROM siswa WHERE nim = '$session'");
                 $result = mysqli_fetch_assoc($pinjam);

@@ -45,12 +45,12 @@
 
                     if( !empty(trim($kode)) && !empty(trim($judul)) && !empty(trim($pengarang)) && !empty(trim($penerbit)) && !empty(trim($lokasi)) && !empty(trim($status)) ){
                         if(tambahbuku($kode, $judul, $pengarang, $penerbit, $lokasi, $status)){
-                            echo "Berhasil menambahkan buku";
+                            echo '<div class="p-3 mb-2 bg-success text-white">BERHASIL MENAMBAHKAN BUKU</div>';
                         }else{
-                            echo "Gagal Menambahkan Buku";
+                            echo '<div class="p-3 mb-2 bg-danger text-white">GAGAL MENAMBAHKAN BUKU</div>';
                         }
                     }else{
-                        echo "Form masih kosong";
+                        echo '<div class="p-3 mb-2 bg-danger text-white">FORM MASIH KOSONG</div>';
                     }
 
                 }

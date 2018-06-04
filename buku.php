@@ -22,7 +22,7 @@
     <div class="row">
         <div class="col-sm-12" style="margin-bottom: 10px;">
             <div class="card">
-                <div class="card-header bg-dark text-white">
+                <div class="card-header text-white">
                     Daftar Buku 
                 </div>
                 <div class="card-body">
